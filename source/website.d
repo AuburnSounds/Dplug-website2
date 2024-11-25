@@ -33,8 +33,23 @@ void hello(const Request req, Output output)
     {
         showHome(output);
     }
-    else
+    else switch(urlParts[0]) 
     {
+    case "public":
+        {
+            if (urlParts.length < 2)
+            {
+                showError404(output);
+                break;
+            }
+            const(char)[] rest = join(urlParts[0..$], "/");
+            output.setExpires(CACHE_MAXAGE);
+            output.serveFile(rest.idup);
+            break;
+        }
+
+
+    default:
         showError404(output);
     }
 }
@@ -98,20 +113,80 @@ void makeSitepageEnter(ref Page page)
 {
     page.htmlHeader("dplug.org", "The Dplug Audio Plug-in Framework.");
 
-    page.s ~= q"[
+    page.s ~= `
 
         <body>
-        TODO
-        </body>
-        ]";
+
+    `;
+
+
+    //  main Navbar
+    page.s ~= `
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <img class="dplug-logo" src="/public/dplug-logo.png">
+                </a>
+
+       <!--         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a> -->
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+
+                    <div class="navbar-item">
+                        <a lass="navbar-link" href="/">
+                        <span class="icon"><i class="lni lni-home-2"></i></span>
+                        <span>WHAT'S THIS?</span>
+                        </a>
+                    </div>
+
+                    <div class="navbar-item">
+                        <a class="navbar-link" href="/projects">
+                            <span class="icon"><i class="lni lni-stars"></i></i></span>
+                            <span>MADE WITH DPLUG</span>
+                        </a>
+                    </div>
+
+                    <div class="navbar-item">
+                        <a class="navbar-link">
+                            <span class="icon"><i class="lni lni-book-open"></i></span>
+                            <span>TUTORIALS</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+
+                        <a class="button is-light" href="https://github.com/AuburnSounds/Dplug">
+                            <span class="icon"><i class="lni lni-github"></i></span>
+                            <span class="is-hidden-mobile">REPORT ISSUE</span>
+                        </a>
+
+                        <a class="button is-primary" href="https://discord.gg/7PdUvUbyJs">
+                            <span class="icon"><i class="lni lni-discord"></i></span>
+                            <span class="is-hidden-mobile">COMMUNITY</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>`;
 }
 
 void makeSitepageExit(ref Page page)
 {
     page.s ~= q"[
-        </div> 
-        </div>
-        <script src="/public/ui.js"></script>
+
+
+
         </body>
         </html>
         ]";
@@ -124,13 +199,15 @@ struct Page
     void htmlHeader(string title, string description)
     {
         s ~= `<!doctype html>`;
-        s ~= `<html lang="en">`;
+        s ~= `<html lang="en" data-theme="dark">`;
         s ~= `<head>`;
         s ~= `<meta charset="utf-8">`;
         s ~= `<meta name="viewport" content="width=device-width, initial-scale=1.0">`;
         s ~= format(`<meta name="description" content="%s">`, description);
         s ~= format(`<title>%s</title>`, title);
-        //s ~= `<link rel="stylesheet" href="/public/pure-min.css">`; // TODO bulma
+        s ~= `<link rel="stylesheet" href="/public/bulma.min.css">`;
+        s ~= `<link rel="stylesheet" href="https://cdn.lineicons.com/5.0/lineicons.css">`;
+        s ~= `<link rel="stylesheet" href="/public/website.css">`;
         s ~= `</head>`;
     }
 
