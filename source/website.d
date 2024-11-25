@@ -241,5 +241,8 @@ void serveFileAndCache(ref Output output, const(char)[] cachePath, const(void)[]
 {
     ServerinoConfig sc = ServerinoConfig.create(); // Config with default params
     sc.addListener("127.0.0.1", 8089);
+    sc.setWorkers(4);
+    sc.setMaxRequestSize(100_000_000); // 100 MB
+    sc.setMaxRequestTime(60.seconds);
     return sc;
 }
