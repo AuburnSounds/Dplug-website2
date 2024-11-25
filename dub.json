@@ -1,0 +1,14 @@
+{
+    "name": "dplug-website2",
+
+    "stringImportPaths":
+    [
+         "public"
+    ],
+    "targetType": "executable",
+
+    "dependencies": {
+        "commonmark-d": "~>1.0",
+        "serverino": "~>0.0"
+    }
+}
