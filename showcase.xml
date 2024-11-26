@@ -5,28 +5,28 @@
         <vendor>Auburn Sounds</vendor>
         <link>https://www.auburnsounds.com/products/InnerPitch.html</link>
         <screenshot>/public/showcase/InnerPitch.webp</screenshot>
-        <description>Inner Pitch takes advantage of PBR (<code>dplug:pbr-widgets</code>) and Wrens cripting to provide a shiny interface.</description>
+        <description>Inner Pitch takes advantage of PBR (<code>dplug:pbr-widgets</code>) and Wren scripting to provide a shiny interface with virtual lights.</description>
     </plugin>
     <plugin>
         <name>EpicPRESS</name>
         <vendor>Cut Through Recordings</vendor>
         <link>https://cutthroughrecordings.com/products/epicpress</link>
         <screenshot>/public/showcase/EpicPress.webp</screenshot>
-        <description>EpicPRESS uses "flat" rendering (<code>dplug:flat-widgets</code>) to avoid the complexity of PBR.</description>
+        <description>EpicPRESS uses "flat" rendering (<code>dplug:flat-widgets</code>) to avoid the complexity of PBR and speaks in sRGB directly.</description>
     </plugin>
     <plugin>
         <name>Nu:Cat</name>
         <vendor>Kitsenubi Games</vendor>
         <link>https://kitsunebi-games.itch.io/nucat</link>
         <screenshot>/public/showcase/nucat.webp</screenshot>
-        <description>Synthesize cat sounds with Nu:Cat! Introducing unique meowdulations.</description>
+        <description>Synthesize cat sounds with Nu:Cat! Introducing unique meowdulations. Making a synth is at your clawtips.</description>
     </plugin>
     <plugin>
         <name>Yamatube Pro</name>
         <vendor>SMAOLAB</vendor>
         <link>https://smaolab.org/product/yamatube-pro/</link>
         <screenshot>/public/showcase/yamatube.webp</screenshot>
-        <description>Open up &amp; enhance your tracks!</description>
+        <description>Use the open-source algorithms in the Dplug Wasteland to find new ways to enhance your tracks!</description>
     </plugin>
     <plugin>
         <name>Graillon</name>
@@ -34,5 +34,12 @@
         <link>https://www.auburnsounds.com/products/Graillon.html</link>
         <screenshot>/public/showcase/Graillon.webp</screenshot>
         <description>Besides interactive PBR tuning, Graillon uses a <code>UIRawLayer</code> for final lighting touches.</description>
+    </plugin>
+    <plugin>
+        <name>TaraLead</name>
+        <vendor>SMAOLAB</vendor>
+        <link>https://smaolab.org/product/taralead-free-version/</link>
+        <screenshot>/public/showcase/taralead.webp</screenshot>
+        <description>HARD distortion, perfect for guitars &amp; bass !</description>
     </plugin>
 </showcase>
