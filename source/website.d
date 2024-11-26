@@ -1,6 +1,7 @@
 import std;
 import commonmarkd;
 import serverino;
+import page;
 
 mixin ServerinoMain;
 
@@ -13,7 +14,7 @@ else
 void hello(const Request req, Output output)
 {
     initialization();
-    const(char)[] url = req.uri();
+    const(char)[] url = req.path();
 
     writefln("GET %s", url);
 
@@ -36,7 +37,7 @@ void hello(const Request req, Output output)
     else switch(urlParts[0]) 
     {
     case "public":
-        {
+        {   
             if (urlParts.length < 2)
             {
                 showError404(output);
@@ -60,24 +61,6 @@ void showError404(ref Output output)
     output ~= "Page not found";
 }
 
-
-__gshared bool g_Init = false;
-
-shared static this()
-{
-    initialization();
-}
-
-void initialization()
-{
-    if (g_Init)
-        return;
-    g_Init = true;
-
-    // note that each httpd worker will do this, since being several processes.
-
-    // If there is website initialization (things to read) do it here
-}
 
 
 void showMarkdownPage(ref Output output, string mdfilePath)
@@ -111,116 +94,83 @@ void showHome(ref Output output)
 
 void makeSitepageEnter(ref Page page)
 {
-    page.htmlHeader("dplug.org", "The Dplug Audio Plug-in Framework.");
-
-    page.s ~= `
-
-        <body>
-
-    `;
+    with (page)
+    {
+        htmlHeader("dplug.org", "The Dplug Audio Plug-in Framework.");
+        begin("body");
+    }
 
 
-    //  main Navbar
-    page.s ~= `
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="/">
-                    <img class="dplug-logo" src="/public/dplug-logo.png">
-                </a>
+    makeSiteNavbar(page);
+}
 
-       <!--         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+void makeSiteNavbar(ref Page page)
+{
+    with(page)
+    {
+        begin("nav", `class="navbar" role="navigation" aria-label="main navigation"`);
+            div(`class="navbar-brand"`);
+                a(`class="navbar-item" href="/"`);
+                    img("/public/dplug-logo.png", "Dplug Logo", `class="dplug-logo"`);
+                end;
+
+                     /*  <!--         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
-                </a> -->
-            </div>
+                </a> --> */
+            end("div");
 
-            <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-start">
+            div(`id="navbarBasicExample" class="navbar-menu"`);
+                div(`class="navbar-start"`);
 
-                    <div class="navbar-item">
-                        <a lass="navbar-link" href="/">
-                        <span class="icon"><i class="lni lni-home-2"></i></span>
-                        <span>WHAT'S THIS?</span>
-                        </a>
-                    </div>
+                    div(`class="navbar-item"`);
+                        a("/", `class="navbar-link"`);
+                            icon("lni-home-2");
+                            spanText("WHAT'S THIS?");
+                        end;
+                    end;
 
-                    <div class="navbar-item">
-                        <a class="navbar-link" href="/projects">
-                            <span class="icon"><i class="lni lni-stars"></i></i></span>
-                            <span>MADE WITH DPLUG</span>
-                        </a>
-                    </div>
+                    div(`class="navbar-item"`);
+                        a("/", `class="navbar-link"`);
+                            icon("lni-stars");
+                            spanText("MADE WITH DPLUG");
+                        end;
+                    end;
 
-                    <div class="navbar-item">
-                        <a class="navbar-link">
-                            <span class="icon"><i class="lni lni-book-open"></i></span>
-                            <span>TUTORIALS</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                     div(`class="navbar-item"`);
+                        a("/", `class="navbar-link"`);
+                            icon("lni-book-open");
+                            spanText("TUTORIALS");
+                        end;
+                    end;
+                end("div");
 
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
+                div(`class="navbar-end"`);
+                    div(`class="navbar-item"`);
+                        div(`class="buttons"`);
+                            a("https://github.com/AuburnSounds/Dplug", `class="button is-light"`);
+                                icon("lni-github");
+                                spanText("ASK QUESTION");
+                            end;
 
-                        <a class="button is-light" href="https://github.com/AuburnSounds/Dplug">
-                            <span class="icon"><i class="lni lni-github"></i></span>
-                            <span class="is-hidden-mobile">REPORT ISSUE</span>
-                        </a>
-
-                        <a class="button is-primary" href="https://discord.gg/7PdUvUbyJs">
-                            <span class="icon"><i class="lni lni-discord"></i></span>
-                            <span class="is-hidden-mobile">COMMUNITY</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </nav>`;
+                            a("https://discord.gg/7PdUvUbyJs", `class="button is-primary"`);
+                                icon("lni-discord");
+                                spanText("DISCORD");
+                            end;
+                        end;
+                    end;
+                end;
+            end;
+        end("nav");
+    }
 }
 
 void makeSitepageExit(ref Page page)
 {
-    page.s ~= q"[
-
-
-
-        </body>
-        </html>
-        ]";
-}
-
-struct Page
-{
-    string s;
-
-    void htmlHeader(string title, string description)
-    {
-        s ~= `<!doctype html>`;
-        s ~= `<html lang="en" data-theme="dark">`;
-        s ~= `<head>`;
-        s ~= `<meta charset="utf-8">`;
-        s ~= `<meta name="viewport" content="width=device-width, initial-scale=1.0">`;
-        s ~= format(`<meta name="description" content="%s">`, description);
-        s ~= format(`<title>%s</title>`, title);
-        s ~= `<link rel="stylesheet" href="/public/bulma.min.css">`;
-        s ~= `<link rel="stylesheet" href="https://cdn.lineicons.com/5.0/lineicons.css">`;
-        s ~= `<link rel="stylesheet" href="/public/website.css">`;
-        s ~= `</head>`;
-    }
-
-    string toString()
-    {
-        return s;
-    }
-
-    void append(const(char)[] content)
-    {
-        s ~= content;
-    }
-
+    page.end("body");
+    page.write("</html>");
 }
 
 void setExpires(ref Output output, int whenFromNowSeconds)
@@ -232,6 +182,8 @@ void setExpires(ref Output output, int whenFromNowSeconds)
 // with serverino, can't return a large request without a file...
 void serveFileAndCache(ref Output output, const(char)[] cachePath, const(void)[] data)
 {
+    // I don't think this is needed to cache since
+    // the CDN is used for that.
     string filePath = ("cache/" ~ cachePath).idup;
     std.file.write(filePath, data);
     output.serveFile(filePath);
@@ -245,4 +197,23 @@ void serveFileAndCache(ref Output output, const(char)[] cachePath, const(void)[]
     sc.setMaxRequestSize(100_000_000); // 100 MB
     sc.setMaxRequestTime(60.seconds);
     return sc;
+}
+
+
+__gshared bool g_Init = false;
+
+shared static this()
+{
+    initialization();
+}
+
+void initialization()
+{
+    if (g_Init)
+        return;
+    g_Init = true;
+
+    // note that each httpd worker will do this, since being several processes.
+
+    // If there is website initialization (things to read) do it here
 }
