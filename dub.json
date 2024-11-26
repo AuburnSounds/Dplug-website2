@@ -9,6 +9,7 @@
 
     "dependencies": {
         "commonmark-d": "~>1.0",
-        "serverino": "~>0.0"
+        "serverino": "~>0.0",
+        "yxml": "~>0.0"
     }
 }

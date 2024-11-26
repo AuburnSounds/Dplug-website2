@@ -1,7 +1,14 @@
-import std;
-import commonmarkd;
+import std.stdio;
+import std.array;
+import std.conv;
+import std.format;
+import std.file;
+import std.datetime;
+
 import serverino;
 import page;
+import plugin;
+
 
 mixin ServerinoMain;
 
@@ -20,8 +27,6 @@ void hello(const Request req, Output output)
 
     const(char)[][] urlParts = split(url, "/");
 
-    //output ~= req.dump(); 
-
     if (urlParts.length < 2)
     {
         showError404(output);
@@ -36,6 +41,10 @@ void hello(const Request req, Output output)
     }
     else switch(urlParts[0]) 
     {
+    case "made-with-dplug":
+        showMadeWith(output);
+        break;
+
     case "public":
         {   
             if (urlParts.length < 2)
@@ -61,60 +70,92 @@ void showError404(ref Output output)
     output ~= "Page not found";
 }
 
-
-
-void showMarkdownPage(ref Output output, string mdfilePath)
+enum
 {
-    Page page;
-    makeSitepageEnter(page);
-
-    page.s ~= `<div class="container">`;
-    page.s ~= `<div class="markdown-page">`;
-    const(char)[] markdown = cast(char[]) std.file.read(mdfilePath);
-
-    MarkdownFlag flags = MarkdownFlag.dialectGitHub;
-    page.s ~= convertMarkdownToHTML(markdown,flags);
-    page.s ~= `</div>`;
-    page.s ~= `</div>`;
-
-    makeSitepageExit(page);
-
-    // Will not need to do that for one day
-
-    output.setExpires(CACHE_MAXAGE);
-    string cacheHTMLPath = baseName(mdfilePath) ~ ".html";
-    output.serveFileAndCache(cacheHTMLPath, to!string(page));
+    PAGE_FEATURES,
+    PAGE_MADEWITH
 }
 
 void showHome(ref Output output)
 {
-    showMarkdownPage(output, "markdown/content.md");
+    Page page;
+    makeSitepageEnter(page, PAGE_FEATURES);
+    page.insertMarkdown("markdown/content.md");
+    makeSitepageExit(page);
+
+    output.setExpires(CACHE_MAXAGE);
+    string cacheHTMLPath = "index.html";
+    output.serveFileAndCache(cacheHTMLPath, to!string(page));
 }
 
-
-void makeSitepageEnter(ref Page page)
+void showMadeWith(ref Output output)
 {
-    with (page)
+    Page page;
+    makeSitepageEnter(page, PAGE_MADEWITH);
+
+    page.div(`class="grid is-col-min-15"`);
+    
+    foreach(plugin; g_plugins)
+    with(page)
     {
-        htmlHeader("dplug.org", "The Dplug Audio Plug-in Framework.");
-        begin("body");
+        div(`class="cell"`);
+        div(`class="card"`);
+            div(`class="card-image"`);
+
+                a(plugin.link, `class="link"`);
+                    begin("figure", `class="image"`);
+                        img(plugin.screenshot, "Screenshot");
+                    end;
+                end;
+            end;
+
+            div(`class="card-content"`);
+                div(`class="media"`);
+                    p(`class="title is-4"`);
+                        write(plugin.name);
+                    end;
+                    p(`class="subtitle is-6 pl-4"`);
+                        write("by " ~ plugin.vendor);
+                    end;
+                end;
+
+                div(`class="content"`);
+                    write(plugin.description);
+                end;
+
+                a(plugin.link, `class="link"`);
+                    spanText("Download");
+                end;
+            end;
+        end("div");
+        end;
     }
+    page.end;
 
-
-    makeSiteNavbar(page);
+    makeSitepageExit(page);
+    output.setExpires(CACHE_MAXAGE);
+    string cacheHTMLPath = "made-with-dplug.html";
+    output.serveFileAndCache(cacheHTMLPath, to!string(page));
 }
 
-void makeSiteNavbar(ref Page page)
+void makeSitepageEnter(ref Page page, int selectedPage)
+{
+    page.htmlHeader("dplug.org", "The Dplug Audio Plug-in Framework.");
+    page.begin("body");
+    makeSiteNavbar(page, selectedPage);
+}
+
+void makeSiteNavbar(ref Page page, int selectedPage)
 {
     with(page)
     {
         begin("nav", `class="navbar" role="navigation" aria-label="main navigation"`);
             div(`class="navbar-brand"`);
-                a(`class="navbar-item" href="/"`);
+                a("/", `class="navbar-item"`);
                     img("/public/dplug-logo.png", "Dplug Logo", `class="dplug-logo"`);
                 end;
 
-                     /*  <!--         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                /*        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -125,25 +166,19 @@ void makeSiteNavbar(ref Page page)
             div(`id="navbarBasicExample" class="navbar-menu"`);
                 div(`class="navbar-start"`);
 
-                    div(`class="navbar-item"`);
-                        a("/", `class="navbar-link"`);
-                            icon("lni-home-2");
-                            spanText("WHAT'S THIS?");
-                        end;
+                    a("/", format(`class="navbar-item %s"`, selectedPage == PAGE_FEATURES ? " is-selected":""));
+                        icon("lni-home-2");
+                        spanText("FEATURES");
+                    end;
+           
+                    a("/made-with-dplug", format(`class="navbar-item %s"`, selectedPage == PAGE_MADEWITH ? " is-selected":""));
+                        icon("lni-heart");
+                        spanText("MADE WITH DPLUG");
                     end;
 
-                    div(`class="navbar-item"`);
-                        a("/", `class="navbar-link"`);
-                            icon("lni-stars");
-                            spanText("MADE WITH DPLUG");
-                        end;
-                    end;
-
-                     div(`class="navbar-item"`);
-                        a("/", `class="navbar-link"`);
-                            icon("lni-book-open");
-                            spanText("TUTORIALS");
-                        end;
+                    a("/tutorials", `class="navbar-item button"`);
+                        icon("lni-book-open");
+                        spanText("TUTORIALS");
                     end;
                 end("div");
 
@@ -152,7 +187,7 @@ void makeSiteNavbar(ref Page page)
                         div(`class="buttons"`);
                             a("https://github.com/AuburnSounds/Dplug", `class="button is-light"`);
                                 icon("lni-github");
-                                spanText("ASK QUESTION");
+                                spanText("OPEN SOURCE");
                             end;
 
                             a("https://discord.gg/7PdUvUbyJs", `class="button is-primary"`);
@@ -202,6 +237,8 @@ void serveFileAndCache(ref Output output, const(char)[] cachePath, const(void)[]
 
 __gshared bool g_Init = false;
 
+__gshared Plugin[] g_plugins;
+
 shared static this()
 {
     initialization();
@@ -211,9 +248,12 @@ void initialization()
 {
     if (g_Init)
         return;
+
     g_Init = true;
 
-    // note that each httpd worker will do this, since being several processes.
+    g_plugins = parsePlugins();
+    writeln("Found %s example plugins", g_plugins.length);
 
+    // note that each httpd worker will do this, since being several processes.
     // If there is website initialization (things to read) do it here
 }

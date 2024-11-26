@@ -1,6 +1,8 @@
 module page;
 
-import std;
+import std.format;
+import std.file;
+import commonmarkd;
 
 struct Page
 {
@@ -61,6 +63,10 @@ struct Page
     {
         begin("span", stuff);
     }
+    void p(string stuff = null)
+    {
+        begin("p", stuff);
+    }
     void a(string href, string stuff = null)
     {
         stuff = format(`href="%s"%s`, href, stuff?stuff:"");
@@ -81,5 +87,19 @@ struct Page
     void icon(string iconname)
     {
         s ~= format(`<span class="icon"><i class="lni %s"></i></span>`, iconname);
+    }
+
+    void insertMarkdown(string mdfilePath)
+    {
+        div(`class="container"`);            
+            const(char)[] markdown = cast(char[]) std.file.read(mdfilePath);
+            MarkdownFlag flags = MarkdownFlag.dialectGitHub;
+            s ~= convertMarkdownToHTML(markdown,flags);
+        end;
+    }
+
+    void write(string t)
+    {
+        s ~= t;
     }
 }
