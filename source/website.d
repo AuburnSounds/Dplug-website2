@@ -163,17 +163,17 @@ void showTutorials(ref Output output)
         page.end;
     page.end;
 
-    page.div(`class="grid is-col-min-20"`);
+    page.div(`class="grid is-col-min-18"`);
 
     foreach(article; g_articles)
     with(page)
     {
         div(`class="cell"`);
-            div(`class="card"`);
+            div(`class="card p-1"`);
                 div(`class="card-image"`);
 
                     a(article.link, `class="link"`);
-                        begin("figure", `class="image is-128x128 mx-auto"`);
+                        begin("figure", `class="image is-128x128 mx-auto mt-5"`);
                             img(article.thumbnail, "Thumbnail"); // retina, since 256x256
                         end;
                     end;
@@ -183,7 +183,7 @@ void showTutorials(ref Output output)
                     div(`class="media"`);
                         p(`class="content my-4"`);
                             begin("blockquote");
-                                write("\"" ~ article.description ~ "\"");
+                                write(article.description);
                             end;
                         end;
                     end;
@@ -195,7 +195,7 @@ void showTutorials(ref Output output)
                         end;
                     end;
                                        
-                    div(`class="is-size-6 is-pulled-right"`);
+                    div(`class="is-size-6 my-2"`);
                         foreach(tag; article.tags)
                         {
                             //a("/tutorials/tags/" ~ tag);

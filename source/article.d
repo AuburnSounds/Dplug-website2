@@ -21,12 +21,12 @@ string convertTagToCategory(string tag)
         case "UI":    return "is-hoverable is-Warning is-light";
         case "Wren":  return "is-hoverable is-warning is-light";
         case "DSP":   return "is-hoverable is-light";
-        case "Music": return "is-hoverable is-primary";
-        case "D":     return "is-hoverable is-danger";
-        case "Faust": return "is-hoverable is-black";
-        case "CPU":   return "is-hoverable is-info";
-        case "DAW":   return "is-hoverable is-dark";
-        case "OSS":   return "is-hoverable is-white";
+        case "Music": return "is-hoverable is-primary is-light";
+        case "D":     return "is-hoverable is-danger is-light";
+        case "Faust": return "is-hoverable is-black is-light";
+        case "CPU":   return "is-hoverable is-info is-light";
+        case "DAW":   return "is-hoverable is-dark is-light";
+        case "OSS":   return "is-hoverable is-white is-light";
     default: 
             assert(false);
     }

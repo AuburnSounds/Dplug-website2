@@ -31,7 +31,7 @@
         <title>Anatomy of a custom widget</title>
         <link>/public/tutorials/Dplug Tutorials 3 - Anatomy of a custom widget.pdf</link>
         <description>How do I make my own Dplug widget?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/custom.webp</thumbnail>
         <tag>Dplug</tag>
         <tag>UI</tag>
     </article>
@@ -40,7 +40,7 @@
         <title>Digital Multiband Processing</title>
         <link>/public/tutorials/Dplug Tutorials 4 - Digital Multiband Processing.pdf</link>
         <description>How to make a multi-band plug-in?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/crossover.webp</thumbnail>
         <tag>DSP</tag>
     </article>
 
@@ -48,15 +48,16 @@
         <title>Distortion At Large</title>
         <link>/public/tutorials/Dplug Tutorials 5 - Distortion At Large.pdf</link>
         <description>What kind of distortions are interesting?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/distortion.webp</thumbnail>
         <tag>DSP</tag>
+        <tag>Music</tag>
     </article>
 
     <article>
         <title>3 ways to live-edit your UI</title>
         <link>/public/tutorials/Dplug Tutorials 6 - 3 ways to live-edit your UI.pdf</link>
         <description>How can I create an UI with small fast iterations?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/happy.webp</thumbnail>
         <tag>Dplug</tag>
         <tag>UI</tag>
     </article>
@@ -65,7 +66,7 @@
         <title>Introducing the Wasteland</title>
         <link>/public/tutorials/Dplug Tutorials 7 - Introducing the Wasteland.pdf</link>
         <description>Where can I found additional UI and DSP written for Dplug?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/wasteland.webp</thumbnail>
         <tag>UI</tag>
         <tag>DSP</tag>
         <tag>Dplug</tag>
@@ -76,7 +77,7 @@
         <title>Swing Explained</title>
         <link>/public/tutorials/Dplug Tutorials 8 - Swing Explained.pdf</link>
         <description>How does Swing work in a drum machine?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/drums.webp</thumbnail>
         <tag>DSP</tag>
         <tag>Music</tag>
     </article>
@@ -85,7 +86,7 @@
         <title>Introducing the Gamut image library</title>
         <link>/public/tutorials/Dplug Tutorials 9 - Introducing the Gamut image library.pdf</link>
         <description>How D templates can lead to bad APIs?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/gamut.webp</thumbnail>
         <tag>Dplug</tag>
         <tag>D</tag>
     </article>
@@ -94,7 +95,7 @@
         <title>Introduction to Real-Time Speech Processing</title>
         <link>/public/tutorials/Dplug Tutorials 10 - Introduction to Real-Time Speech Processing.pdf</link>
         <description>What processing should I do for speech effects?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/voice.webp</thumbnail>
         <tag>DSP</tag>
         <tag>Music</tag>
     </article>
@@ -103,7 +104,7 @@
         <title>UI Feedback optimizations in Lens</title>
         <link>/public/tutorials/Dplug Tutorials 11 - UI Feedback optimizations in Lens.pdf</link>
         <description>How do I send large amount of data from DSP to UI?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/feedback.webp</thumbnail>
         <tag>UI</tag>
         <tag>Dplug</tag>
         <tag>CPU</tag>
@@ -113,7 +114,7 @@
         <title>Using Faust in Dplug</title>
         <link>/public/tutorials/Dplug Tutorials 12 - Using Faust in Dplug.pdf</link>
         <description>Where can I find an example of Dplug + Faust integration?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/fausthow.webp</thumbnail>
         <tag>Dplug</tag>
         <tag>Faust</tag>
     </article>
@@ -122,7 +123,7 @@
         <title>Perception how low can you go</title>
         <link>/public/tutorials/Dplug Tutorials 13 - Perception how low can you go.pdf</link>
         <description>What can tuning audio parameters teach us?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/howlow.webp</thumbnail>
         <tag>DSP</tag>
         <tag>Dplug</tag>
     </article>
@@ -131,7 +132,7 @@
         <title>Benchmark your UI in 3 easy steps</title>
         <link>/public/tutorials/Dplug Tutorials 14 - Benchmark your UI in 3 easy steps.pdf</link>
         <description>Why is my UI slow?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/guernica.webp</thumbnail>
         <tag>CPU</tag>
         <tag>Dplug</tag>
         <tag>UI</tag>
@@ -141,7 +142,7 @@
         <title>Visualizing a 2D PBR interface with voxels</title>
         <link>/public/tutorials/Dplug Tutorials 15 - Visualizing a 2D PBR interface with voxels.pdf</link>
         <description>How does a PBR plug-in look like in 3D?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/voxels.webp</thumbnail>
         <tag>UI</tag>
         <tag>Dplug</tag>
     </article>
@@ -150,7 +151,7 @@
         <title>Dplug architecture and D ecosystem</title>
         <link>/public/tutorials/Dplug Tutorials 16 - Dplug architecture and D ecosystem.pdf</link>
         <description>What is the future direction of Dplug architecture?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/chakras.webp</thumbnail>
         <tag>D</tag>
         <tag>Dplug</tag>
     </article>
@@ -159,7 +160,7 @@
         <title>Faust Dplug Integration</title>
         <link>/public/tutorials/Dplug Tutorials 17 - Faust Dplug Integration.pdf</link>
         <description>Why should I use Faust?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/faustwhy.webp</thumbnail>
         <tag>Dplug</tag>
         <tag>Faust</tag>
     </article>
@@ -168,7 +169,7 @@
         <title>The Case Against Binary Trees</title>
         <link>/public/tutorials/Dplug Tutorials 18 - The Case Against Binary Trees.pdf</link>
         <description>Are B-tree more efficient than hashtables and Red-Black trees?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/badrbtree.webp</thumbnail>
         <tag>CPU</tag>
         <tag>D</tag>
         <tag>Dplug</tag>
@@ -178,7 +179,7 @@
         <title>4 Audio DSP Optimization Idioms</title>
         <link>/public/tutorials/Dplug Tutorials 19 - 4 Audio DSP Optimization Idioms.pdf</link>
         <description>How could I speed up audio processing?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/speed.webp</thumbnail>
         <tag>CPU</tag>
         <tag>D</tag>
         <tag>Dplug</tag>
@@ -188,24 +189,24 @@
         <title>Moog Ladder Filter Explained</title>
         <link>/public/tutorials/Dplug Tutorials 20 - Moog Ladder Filter Explained.pdf</link>
         <description>How can I model fast feedback loops in circuit models?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/knob.webp</thumbnail>
         <tag>DSP</tag>
     </article>
 
     <article>
-        <title>CLAP Support in Dplug and 3 other goodies</title>
+        <title>CLAP Support in Dplug</title>
         <link>/public/tutorials/Dplug Tutorials 21 - CLAP Support in Dplug and 3 other goodies.pdf</link>
         <description>How can I add a plugin format to my plugin?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/clap.webp</thumbnail>
         <tag>Dplug</tag>
         <tag>DAW</tag>
     </article>
 
        <article>
-        <title>CLAP Support in Dplug and 3 other goodies</title>
-        <link>/public/tutorials/Dplug Tutorials 21 - CLAP Support in Dplug and 3 other goodies.pdf</link>
+        <title>FLOSS, Community, Business models</title>
+        <link>/public/tutorials/Dplug Tutorials 22 - FLOSS, Community, Business models, a Basic Introduction.pdf</link>
         <description>What are the different business models of Open-source software?</description>
-        <thumbnail>/public/thumb/missing.webp</thumbnail>
+        <thumbnail>/public/thumb/oss.webp</thumbnail>
         <tag>OSS</tag>
         <tag>D</tag>
         <tag>Dplug</tag>
