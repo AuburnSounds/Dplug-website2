@@ -9,7 +9,8 @@ import page;
 enum
 {
     PAGE_FEATURES,
-    PAGE_MADEWITH
+    PAGE_MADEWITH,
+    PAGE_TUTORIALS
 }
 
 
@@ -18,9 +19,9 @@ debug
 else
     enum int CACHE_MAXAGE = 3600*24;
 
-void makeSitepageEnter(ref Page page, int selectedPage)
+void makeSitepageEnter(ref Page page, int selectedPage, bool darkTheme)
 {
-    page.htmlHeader("dplug.org", "The Dplug Audio Plug-in Framework.");
+    page.htmlHeader("dplug.org", "The Dplug Audio Plug-in Framework.", darkTheme);
     page.begin("body");
     makeSiteNavbar(page, selectedPage);
 }
@@ -56,7 +57,7 @@ void makeSiteNavbar(ref Page page, int selectedPage)
         spanText("MADE WITH DPLUG");
         end;
 
-        a("/tutorials", `class="navbar-item button"`);
+        a("/tutorials", format(`class="navbar-item button %s"`, selectedPage == PAGE_TUTORIALS ? " is-selected":""));
         icon("lni-book-open");
         spanText("TUTORIALS");
         end;

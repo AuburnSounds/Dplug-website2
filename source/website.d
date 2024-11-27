@@ -8,6 +8,7 @@ import std.datetime;
 import serverino;
 import page;
 import plugin;
+import article;
 import websitecore;
 
 mixin ServerinoMain;
@@ -37,6 +38,10 @@ void hello(const Request req, Output output)
     }
     else switch(urlParts[0]) 
     {
+    case "tutorials":
+        showTutorials(output);
+        break;
+
     case "made-with-dplug":
         showMadeWith(output);
         break;
@@ -49,6 +54,7 @@ void hello(const Request req, Output output)
                 break;
             }
             const(char)[] rest = join(urlParts[0..$], "/");
+            rest = rest.replace("%20", " ");
             output.setExpires(CACHE_MAXAGE);
             output.serveFile(rest.idup);
             break;
@@ -72,10 +78,16 @@ enum
     PAGE_MADEWITH
 }
 
+enum
+{
+    THEME_LIGHT = false,
+    THEME_DARK = true
+}
+
 void showHome(ref Output output)
 {
     Page page;
-    makeSitepageEnter(page, PAGE_FEATURES);
+    makeSitepageEnter(page, PAGE_FEATURES, THEME_DARK);
     page.insertMarkdown("markdown/content.md");
     makeSitepageExit(page);
 
@@ -87,7 +99,7 @@ void showHome(ref Output output)
 void showMadeWith(ref Output output)
 {
     Page page;
-    makeSitepageEnter(page, PAGE_MADEWITH);
+    makeSitepageEnter(page, PAGE_MADEWITH, THEME_DARK);
 
     page.div(`class="container"`);
         page.div(`class="content"`);
@@ -140,12 +152,77 @@ void showMadeWith(ref Output output)
     output.serveFileAndCache(cacheHTMLPath, to!string(page));
 }
 
+void showTutorials(ref Output output)
+{
+    Page page;
+    makeSitepageEnter(page, PAGE_TUTORIALS, THEME_LIGHT);
+
+    page.div(`class="container"`);
+        page.div(`class="content"`);
+            page.insertMarkdown("markdown/tutorials.md");
+        page.end;
+    page.end;
+
+    page.div(`class="grid is-col-min-20"`);
+
+    foreach(article; g_articles)
+    with(page)
+    {
+        div(`class="cell"`);
+            div(`class="card"`);
+                div(`class="card-image"`);
+
+                    a(article.link, `class="link"`);
+                        begin("figure", `class="image is-128x128 mx-auto"`);
+                            img(article.thumbnail, "Thumbnail"); // retina, since 256x256
+                        end;
+                    end;
+                end;
+       
+                div(`class="card-content is-size-5"`);
+                    div(`class="media"`);
+                        p(`class="content my-4"`);
+                            begin("blockquote");
+                                write("\"" ~ article.description ~ "\"");
+                            end;
+                        end;
+                    end;
+ 
+                    div(`class="button link"`);
+                        write("See:&nbsp;");
+                        a(article.link);
+                            write(article.title);
+                        end;
+                    end;
+                                       
+                    div(`class="is-size-6 is-pulled-right"`);
+                        foreach(tag; article.tags)
+                        {
+                            //a("/tutorials/tags/" ~ tag);
+                                string cat = convertTagToCategory(tag);
+                                write(format(`<span class="tag %s mx-1">%s</span>`, cat, "#" ~ tag));
+                            //end;
+                        }
+                    end;
+                end;
+            end("div");
+        end;
+    }
+    page.end;
+
+    makeSitepageExit(page);
+    output.setExpires(CACHE_MAXAGE);
+    string cacheHTMLPath = "made-with-dplug.html";
+    output.serveFileAndCache(cacheHTMLPath, to!string(page));
+}
+
+
 
 @onServerInit ServerinoConfig setup()
 {
     ServerinoConfig sc = ServerinoConfig.create(); // Config with default params
     sc.addListener("127.0.0.1", 8089);
-    sc.setWorkers(4);
+    sc.setWorkers(2);
     sc.setMaxRequestSize(100_000_000); // 100 MB
     sc.setMaxRequestTime(60.seconds);
     return sc;
@@ -155,6 +232,7 @@ void showMadeWith(ref Output output)
 __gshared bool g_Init = false;
 
 __gshared Plugin[] g_plugins;
+__gshared Article[] g_articles;
 
 shared static this()
 {
@@ -169,7 +247,10 @@ void initialization()
     g_Init = true;
 
     g_plugins = parsePlugins();
-    writeln("Found %s example plugins", g_plugins.length);
+    writefln("Found %s example plugins", g_plugins.length);
+
+    g_articles = parseArticles();
+    writefln("Found %s articles/questions", g_articles.length);
 
     // note that each httpd worker will do this, since being several processes.
     // If there is website initialization (things to read) do it here

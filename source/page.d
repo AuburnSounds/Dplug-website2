@@ -8,10 +8,12 @@ struct Page
 {
     string s;
 
-    void htmlHeader(string title, string description)
+    void htmlHeader(string title, 
+                    string description,
+                    bool darkTheme)
     {
         s ~= `<!doctype html>`;
-        s ~= `<html lang="en" data-theme="dark">`;
+        s ~= format(`<html lang="en" data-theme="%s">`, darkTheme ? "dark" : "light");
         s ~= `<head>`;
         s ~= `<meta charset="utf-8">`;
         s ~= `<meta name="viewport" content="width=device-width, initial-scale=1.0">`;
