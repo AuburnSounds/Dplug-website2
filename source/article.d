@@ -10,24 +10,35 @@ class Article
    string description;
    string thumbnail;
    string[] tags;
+
+   bool hasTag(const(char)[] t)
+   {
+       foreach(tag; tags)
+           if (t == tag)
+               return true;
+       return false;
+   }
 }
+
+string[] KNOWN_TAGS =
+[
+    "cpu", "d", "dplug", "dsp", "music", "other", "ui"
+];
 
 
 string convertTagToCategory(string tag)
 {
     switch(tag)
     {
-        case "Dplug": return "is-hoverable is-success is-light";
-        case "UI":    return "is-hoverable is-Warning is-light";
-        case "Wren":  return "is-hoverable is-warning is-light";
-        case "DSP":   return "is-hoverable is-light";
-        case "Music": return "is-hoverable is-primary is-light";
-        case "D":     return "is-hoverable is-danger is-light";
-        case "Faust": return "is-hoverable is-black is-light";
-        case "CPU":   return "is-hoverable is-info is-light";
-        case "DAW":   return "is-hoverable is-dark is-light";
-        case "OSS":   return "is-hoverable is-white is-light";
+        case "dplug": return "is-hoverable is-info is-light";
+        case "ui":    return "is-hoverable is-warning is-light";
+        case "dsp":   return "is-hoverable is-link is-light";
+        case "music": return "is-hoverable is-primary is-light";
+        case "d":     return "is-hoverable is-danger is-light";
+        case "cpu":   return "is-hoverable is-info is-light";
+        case "other": return "is-hoverable is-light";
     default: 
+            writefln("Unknonw tag %s", tag);
             assert(false);
     }
 }

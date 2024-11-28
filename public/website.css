@@ -3,3 +3,6 @@
     height: 6em;
     vertical-align: top;
 }
+.column {
+    display: flex;
+}

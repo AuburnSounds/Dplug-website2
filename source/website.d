@@ -39,7 +39,10 @@ void hello(const Request req, Output output)
     else switch(urlParts[0]) 
     {
     case "tutorials":
-        showTutorials(output);
+        string seltag = null;
+        if (urlParts.length >= 2 && urlParts[1] == "tag")
+            seltag = urlParts[2].idup;
+        showTutorials(output, seltag);
         break;
 
     case "made-with-dplug":
@@ -105,6 +108,8 @@ void showMadeWith(ref Output output)
         page.div(`class="content"`);
             page.insertMarkdown("markdown/made-with-dplug.md");
         page.end;
+
+        
     page.end;
 
     page.div(`class="grid is-col-min-15"`);
@@ -152,22 +157,55 @@ void showMadeWith(ref Output output)
     output.serveFileAndCache(cacheHTMLPath, to!string(page));
 }
 
-void showTutorials(ref Output output)
+void showTag(ref Page page, string tag)
+{
+    page.a("/tutorials/tag/" ~ tag);
+    string cat = convertTagToCategory(tag);
+    page.write(format(`<span class="tag %s mx-1">%s</span>`, cat, "#" ~ tag));
+    page.end;
+}
+
+void showTutorials(ref Output output, string seltag)
 {
     Page page;
     makeSitepageEnter(page, PAGE_TUTORIALS, THEME_LIGHT);
 
-    page.div(`class="container"`);
+    page.div(`class="container p-4"`);
         page.div(`class="content"`);
             page.insertMarkdown("markdown/tutorials.md");
         page.end;
     page.end;
 
+
+    page.div(`class="container p-4 content "`);
+    page.spanText("Tags: ");
+    with(page)
+        foreach(tag; KNOWN_TAGS)
+        {
+            page.showTag(tag);           
+        }
+    page.end;
+
+    if (seltag)
+    {
+        page.div(`class="container p-4 content"`);
+        page.spanText("Filter: ");
+           page.showTag(seltag);
+
+           page.a("/tutorials");
+               page.write(`<span class="tag is-hoverable is-light mx-1">✖&nbsp;clear</span>`);
+           page.end;
+        page.end;
+    }
+
     page.div(`class="grid is-col-min-18"`);
 
+    int qcount = 0;
     foreach(article; g_articles)
+    if (seltag is null || article.hasTag(seltag))
     with(page)
     {
+        qcount++;
         div(`class="cell"`);
             div(`class="card p-1"`);
                 div(`class="card-image"`);
@@ -198,16 +236,17 @@ void showTutorials(ref Output output)
                     div(`class="is-size-6 my-2"`);
                         foreach(tag; article.tags)
                         {
-                            //a("/tutorials/tags/" ~ tag);
-                                string cat = convertTagToCategory(tag);
-                                write(format(`<span class="tag %s mx-1">%s</span>`, cat, "#" ~ tag));
-                            //end;
+                            showTag(page, tag);
                         }
                     end;
                 end;
             end("div");
         end;
     }
+    page.end;
+
+    page.div(`class="container p-4 is-pulled-right content "`);
+        page.spanText(format("Found %s questions.", qcount));
     page.end;
 
     makeSitepageExit(page);
