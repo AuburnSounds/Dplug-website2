@@ -30,7 +30,7 @@ string convertTagToCategory(string tag)
 {
     switch(tag)
     {
-        case "dplug": return "is-hoverable is-info is-light";
+        case "dplug": return "is-hoverable is-success is-light";
         case "ui":    return "is-hoverable is-warning is-light";
         case "dsp":   return "is-hoverable is-link is-light";
         case "music": return "is-hoverable is-primary is-light";
