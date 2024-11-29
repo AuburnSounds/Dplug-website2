@@ -30,7 +30,7 @@ void makeSiteNavbar(ref Page page, int selectedPage)
 {
     with(page)
     {
-        begin("nav", `class="navbar" role="navigation" aria-label="main navigation"`);
+        begin("nav", `class="navbar theme-light" role="navigation" aria-label="main navigation"`);
         div(`class="navbar-brand"`);
         a("/", `class="navbar-item"`);
         img("/public/dplug-logo.png", "Dplug Logo", `class="dplug-logo"`);
@@ -48,17 +48,17 @@ void makeSiteNavbar(ref Page page, int selectedPage)
         div(`class="navbar-start"`);
 
         a("/", format(`class="navbar-item %s"`, selectedPage == PAGE_FEATURES ? " is-selected":""));
-        icon("lni-home-2");
+        //icon("lni-home-2");
         spanText("FEATURES");
         end;
 
         a("/made-with-dplug", format(`class="navbar-item %s"`, selectedPage == PAGE_MADEWITH ? " is-selected":""));
-        icon("lni-heart");
+        //icon("lni-heart");
         spanText("MADE WITH DPLUG");
         end;
 
         a("/tutorials", format(`class="navbar-item button %s"`, selectedPage == PAGE_TUTORIALS ? " is-selected":""));
-        icon("lni-book-open");
+        //icon("lni-book-open");
         spanText("TUTORIALS");
         end;
         end("div");

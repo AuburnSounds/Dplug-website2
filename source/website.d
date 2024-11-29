@@ -218,12 +218,15 @@ void showTutorials(ref Output output, string seltag)
                 end;
        
                 div(`class="card-content is-size-5"`);
-                    div(`class="media"`);
-                        p(`class="content my-4"`);
-                            begin("blockquote");
-                                write(article.description);
-                            end;
+                    
+                    p(`class="content my-4"`);
+                        begin("blockquote");
+                            write(article.description);
                         end;
+                    end;
+
+                    div(`class="content is-size-7 is-italic mx-4 my-2"`);
+                        write(article.elevatorPitch);
                     end;
  
                     div(`class="button link"`);

@@ -10,19 +10,22 @@
     -->
 
     <article>
-        <title>Live-coding plugins UI with Wren</title>
-        <link>/public/tutorials/Dplug Tutorials 1 - Live-coding plugins UI with Wren.pdf</link>
-        <description>How can I integrate Wren scripting for fast UI creation?</description>
-        <thumbnail>/public/thumb/wren.webp</thumbnail>
-        <tag>ui</tag>
+        <title>Get Started with your first Dplug plug-in</title>
+        <link>https://github.com/AuburnSounds/Dplug/wiki/Getting-Started</link>
+        <description>How can I make my first Dplug plug-in?</description>
+        <thumbnail>/public/thumb/walking.webp</thumbnail>
+        <elevator-pitch>In this important Wiki page, you'll see how to build the Dplug examples, and make your own plug-in using D. Go forth and prosper!</elevator-pitch>
+        <tag>d</tag>
         <tag>dplug</tag>
     </article>
 
-  <article>
-        <title>MIDI Output in Dplug</title>
-        <link>/public/tutorials/Dplug Tutorials 2 - MIDI Output in Dplug.pdf</link>
-        <description>How do I send MIDI output?</description>
-        <thumbnail>/public/thumb/midiout.webp</thumbnail>
+    <article>
+        <title>Dplug Release Notes</title>
+        <link>https://github.com/AuburnSounds/Dplug/wiki/Release-notes</link>
+        <description>What changed in Dplug?</description>
+        <thumbnail>/public/thumb/changelog.webp</thumbnail>
+        <elevator-pitch>Breaking changes are a fact of life and we like to minimize them in Dplug. But they happen and you need to track them! This Wiki page exposes the shocking breaking changes happening in Dplug behind your back.</elevator-pitch>
+        <tag>d</tag>
         <tag>dplug</tag>
     </article>
 
@@ -31,34 +34,18 @@
         <link>/public/tutorials/Dplug Tutorials 3 - Anatomy of a custom widget.pdf</link>
         <description>How do I make my own Dplug widget?</description>
         <thumbnail>/public/thumb/custom.webp</thumbnail>
+        <elevator-pitch>GET REAL. Audio programming is not about audio. It's all about making custom widgets as quickly as possible. Learn how to pump those out in this unique detailed code explanation.</elevator-pitch>
         <tag>dplug</tag>
         <tag>ui</tag>
     </article>
 
     <article>
-        <title>Digital Multiband Processing</title>
-        <link>/public/tutorials/Dplug Tutorials 4 - Digital Multiband Processing.pdf</link>
-        <description>How to make a multi-band plug-in?</description>
-        <thumbnail>/public/thumb/crossover.webp</thumbnail>
-        <tag>dsp</tag>
-    </article>
-
-    <article>
-        <title>Distortion At Large</title>
-        <link>/public/tutorials/Dplug Tutorials 5 - Distortion At Large.pdf</link>
-        <description>What kind of distortions are interesting?</description>
-        <thumbnail>/public/thumb/distortion.webp</thumbnail>
-        <tag>dsp</tag>
-        <tag>music</tag>
-    </article>
-
-    <article>
-        <title>3 ways to live-edit your UI</title>
-        <link>/public/tutorials/Dplug Tutorials 6 - 3 ways to live-edit your UI.pdf</link>
-        <description>How can I create an UI with small fast iterations?</description>
-        <thumbnail>/public/thumb/happy.webp</thumbnail>
+        <title>CLAP Support in Dplug</title>
+        <link>/public/tutorials/Dplug Tutorials 21 - CLAP Support in Dplug and 3 other goodies.pdf</link>
+        <description>How can I add a format to my plug-in?</description>
+        <thumbnail>/public/thumb/clap.webp</thumbnail>
+        <elevator-pitch>In this presentation you'll learn how to add support for a trendy plug-in format such as CLAP, but also 3 other surprising tips!</elevator-pitch>
         <tag>dplug</tag>
-        <tag>ui</tag>
     </article>
 
     <article>
@@ -66,6 +53,7 @@
         <link>/public/tutorials/Dplug Tutorials 7 - Introducing the Wasteland.pdf</link>
         <description>Where can I found additional UI and DSP written for Dplug?</description>
         <thumbnail>/public/thumb/wasteland.webp</thumbnail>
+        <elevator-pitch>Today the audio workers are in chains and face unique competitive pressure in the workplace. However Dplug is a heavenly safe third-space where the unsuspecting people of the Earth gather and share their DSP algorithms and UI widgets in the Open aether, for you to steal.</elevator-pitch>
         <tag>ui</tag>
         <tag>dsp</tag>
         <tag>dplug</tag>
@@ -73,40 +61,62 @@
     </article>
 
     <article>
-        <title>Swing Explained</title>
-        <link>/public/tutorials/Dplug Tutorials 8 - Swing Explained.pdf</link>
-        <description>How does Swing work in a drum machine?</description>
-        <thumbnail>/public/thumb/drums.webp</thumbnail>
-        <tag>dsp</tag>
-        <tag>music</tag>
-    </article>
-
-    <article>
-        <title>Introducing the Gamut image library</title>
-        <link>/public/tutorials/Dplug Tutorials 9 - Introducing the Gamut image library.pdf</link>
-        <description>How D templates can lead to bad APIs?</description>
-        <thumbnail>/public/thumb/gamut.webp</thumbnail>
+        <title>3 ways to live-edit your UI</title>
+        <link>/public/tutorials/Dplug Tutorials 6 - 3 ways to live-edit your UI.pdf</link>
+        <description>How can I create an UI with small fast iterations?</description>
+        <thumbnail>/public/thumb/happy.webp</thumbnail>
+        <elevator-pitch>In this WILD PDF, you'll see how to reload background images, position a widget, and script graphics properties using Wren. Let your career reach escape velocity!</elevator-pitch>
         <tag>dplug</tag>
-        <tag>d</tag>
+        <tag>ui</tag>
     </article>
 
     <article>
-        <title>Introduction to Real-Time Speech Processing</title>
-        <link>/public/tutorials/Dplug Tutorials 10 - Introduction to Real-Time Speech Processing.pdf</link>
-        <description>What processing should I do for speech effects?</description>
-        <thumbnail>/public/thumb/voice.webp</thumbnail>
-        <tag>dsp</tag>
-        <tag>music</tag>
-    </article>
-
-    <article>
-        <title>UI Feedback optimizations in Lens</title>
-        <link>/public/tutorials/Dplug Tutorials 11 - UI Feedback optimizations in Lens.pdf</link>
-        <description>How do I send large amount of data from DSP to UI?</description>
-        <thumbnail>/public/thumb/feedback.webp</thumbnail>
+        <title>Live-coding plugins UI with Wren</title>
+        <link>/public/tutorials/Dplug Tutorials 1 - Live-coding plugins UI with Wren.pdf</link>
+        <description>How can I integrate Wren scripting for fast UI creation?</description>
+        <thumbnail>/public/thumb/wren.webp</thumbnail>
+        <elevator-pitch>The famous PDF that introduced Wren in the Dplug world. Wren is a scripting language with low-overhead, used in Dplug as a kind of "Imperative CSS". Not strictly a very good idea, but that's the one the Dplug developers had.</elevator-pitch>
         <tag>ui</tag>
         <tag>dplug</tag>
+    </article>
+
+    <article>
+        <title>Distortion At Large</title>
+        <link>/public/tutorials/Dplug Tutorials 5 - Distortion At Large.pdf</link>
+        <description>What kind of distortions are interesting?</description>
+        <thumbnail>/public/thumb/distortion.webp</thumbnail>
+        <elevator-pitch>How are the best famous distortions made? What are the BEST waveshapers? This presentation will be of value for the distortion connoisseur. At the end of the day, <code>tanh</code> sounds awesome, so: are there others like that?</elevator-pitch>
+        <tag>dsp</tag>
+        <tag>music</tag>
+    </article>
+
+    <article>
+        <title>MIDI Output in Dplug</title>
+        <link>/public/tutorials/Dplug Tutorials 2 - MIDI Output in Dplug.pdf</link>
+        <description>How do I send MIDI output?</description>
+        <thumbnail>/public/thumb/midiout.webp</thumbnail>
+        <elevator-pitch>In a world where MIDI output is solely used by a select few plug-ins, the secret of sending notes and velocities has been lost to time. But one day, a Dplug update brought this feature to the masses and allowed people to send MIDI v1 messages in any timestamp order.</elevator-pitch>
+        <tag>dplug</tag>
+    </article>
+
+    <article>
+        <title>Digital Multiband Processing</title>
+        <link>/public/tutorials/Dplug Tutorials 4 - Digital Multiband Processing.pdf</link>
+        <description>How to make a multi-band plug-in?</description>
+        <thumbnail>/public/thumb/crossover.webp</thumbnail>
+        <elevator-pitch>Ever wondered what are those strange cross-over filters, and what do they want? This PDF touches on that.</elevator-pitch>
+        <tag>dsp</tag>
+    </article>
+
+    <article>
+        <title>Benchmark your UI in 3 easy steps</title>
+        <link>/public/tutorials/Dplug Tutorials 14 - Benchmark your UI in 3 easy steps.pdf</link>
+        <description>Why is my UI slow?</description>
+        <thumbnail>/public/thumb/guernica.webp</thumbnail>
+        <elevator-pitch>Your UI is SLOW because you are LAZY and didn't USE A PROFILER! Learn how to use built-in UI widget profiler in Dplug and JOIN a community of EFFICIENT BUILDERS.</elevator-pitch>
         <tag>cpu</tag>
+        <tag>dplug</tag>
+        <tag>ui</tag>
     </article>
 
     <article>
@@ -114,6 +124,28 @@
         <link>/public/tutorials/Dplug Tutorials 12 - Using Faust in Dplug.pdf</link>
         <description>Where can I find an example of Dplug + Faust integration?</description>
         <thumbnail>/public/thumb/fausthow.webp</thumbnail>
+        <elevator-pitch>There is no word to accurately describes the feeling of using a DSL for DSP, and another DSL for UI. One day, the two sides of the DSL will be reunited with D in what we call: the Great Merge.</elevator-pitch>
+        <tag>dplug</tag>
+        <tag>dsp</tag>
+    </article>
+
+    <article>
+        <title>UI Feedback optimizations in Lens</title>
+        <link>/public/tutorials/Dplug Tutorials 11 - UI Feedback optimizations in Lens.pdf</link>
+        <description>How do I send large amount of data from DSP to UI?</description>
+        <thumbnail>/public/thumb/feedback.webp</thumbnail>
+        <elevator-pitch>Users want more transparency and will only trust an audio process that they know have a nicely animated gradient. In today's post-truth world, it becomes important to share more data from the DSP thread to the UI in an efficient manner. And more data can only be good for music, right?</elevator-pitch>
+        <tag>ui</tag>
+        <tag>dplug</tag>
+        <tag>cpu</tag>
+    </article>
+
+    <article>
+        <title>Faust Dplug Integration</title>
+        <link>/public/tutorials/Dplug Tutorials 17 - Faust Dplug Integration.pdf</link>
+        <description>Why should I use Faust?</description>
+        <thumbnail>/public/thumb/faustwhy.webp</thumbnail>
+        <elevator-pitch>A presentation by the Faust delegation in Dplug. Tradeoff and integration plans EXPOSED in this shockingly-balanced PDF about the Faust language, a language specialized for DSP.</elevator-pitch>
         <tag>dplug</tag>
         <tag>dsp</tag>
     </article>
@@ -123,18 +155,50 @@
         <link>/public/tutorials/Dplug Tutorials 13 - Perception how low can you go.pdf</link>
         <description>What can tuning audio parameters teach us?</description>
         <thumbnail>/public/thumb/howlow.webp</thumbnail>
+        <elevator-pitch>What happens if you put the main Dplug developer in a sensorial isolation tank and give him A/B tests for a whole month? He would answer with this crazy presentation. This is where the gum of objective measures hits the road of subjective assessments.</elevator-pitch>
         <tag>dsp</tag>
         <tag>dplug</tag>
     </article>
 
     <article>
-        <title>Benchmark your UI in 3 easy steps</title>
-        <link>/public/tutorials/Dplug Tutorials 14 - Benchmark your UI in 3 easy steps.pdf</link>
-        <description>Why is my UI slow?</description>
-        <thumbnail>/public/thumb/guernica.webp</thumbnail>
+        <title>Swing Explained</title>
+        <link>/public/tutorials/Dplug Tutorials 8 - Swing Explained.pdf</link>
+        <description>How does Swing work in a drum machine?</description>
+        <thumbnail>/public/thumb/drums.webp</thumbnail>
+        <elevator-pitch>This is a programming site, so you were thinking about Swing, the Java library. But this is about Swing, the tempo modifier in your sequencer.</elevator-pitch>
+        <tag>dsp</tag>
+        <tag>music</tag>
+    </article>
+
+    <article>
+        <title>4 Audio DSP Optimization Idioms</title>
+        <link>/public/tutorials/Dplug Tutorials 19 - 4 Audio DSP Optimization Idioms.pdf</link>
+        <description>How could I speed up audio processing?</description>
+        <thumbnail>/public/thumb/speed.webp</thumbnail>
+        <elevator-pitch>How to use those pesky portable SIMD? A list of increasingly impractical tips to make your DSP faster.</elevator-pitch>
         <tag>cpu</tag>
+        <tag>d</tag>
         <tag>dplug</tag>
-        <tag>ui</tag>
+    </article>
+
+    <article>
+        <title>Introduction to Real-Time Speech Processing</title>
+        <link>/public/tutorials/Dplug Tutorials 10 - Introduction to Real-Time Speech Processing.pdf</link>
+        <description>What processing should I do for speech effects?</description>
+        <thumbnail>/public/thumb/voice.webp</thumbnail>
+        <elevator-pitch>A list of things researchers do when they encounter speech.</elevator-pitch>
+        <tag>dsp</tag>
+        <tag>music</tag>
+    </article>
+
+    <article>
+        <title>Introducing the Gamut image library</title>
+        <link>/public/tutorials/Dplug Tutorials 9 - Introducing the Gamut image library.pdf</link>
+        <description>How D templates can lead to bad APIs?</description>
+        <thumbnail>/public/thumb/gamut.webp</thumbnail>
+        <elevator-pitch>An ancient tragedy where the former Dplug images were hard to use. But the choir says the new Gamut library will solve a few of those problems. In the end the two seems to co-exist. This PDF advocates for a new kind of D library, and also introduces a custom codec named QOIX — why not?</elevator-pitch>
+        <tag>dplug</tag>
+        <tag>d</tag>
     </article>
 
     <article>
@@ -142,6 +206,7 @@
         <link>/public/tutorials/Dplug Tutorials 15 - Visualizing a 2D PBR interface with voxels.pdf</link>
         <description>How does a PBR plug-in look like in 3D?</description>
         <thumbnail>/public/thumb/voxels.webp</thumbnail>
+        <elevator-pitch>Other companies model their plug-ins in 3D, so they can have a fancy trailer with a rotating 3D model. But Dplug PBR is 2D. How can we use the 2D height map and generate a 3D output for the Marketing Department?</elevator-pitch>
         <tag>ui</tag>
         <tag>dplug</tag>
     </article>
@@ -151,17 +216,9 @@
         <link>/public/tutorials/Dplug Tutorials 16 - Dplug architecture and D ecosystem.pdf</link>
         <description>What is the future direction of Dplug architecture?</description>
         <thumbnail>/public/thumb/chakras.webp</thumbnail>
+        <elevator-pitch>An article who advocate for a style of D libraries that is more like the style of good C libraries. Dplug had bad APIs originally, but the newer ones are better and this is how they are done.</elevator-pitch>
         <tag>d</tag>
         <tag>dplug</tag>
-    </article>
-
-    <article>
-        <title>Faust Dplug Integration</title>
-        <link>/public/tutorials/Dplug Tutorials 17 - Faust Dplug Integration.pdf</link>
-        <description>Why should I use Faust?</description>
-        <thumbnail>/public/thumb/faustwhy.webp</thumbnail>
-        <tag>dplug</tag>
-        <tag>dsp</tag>
     </article>
 
     <article>
@@ -169,16 +226,7 @@
         <link>/public/tutorials/Dplug Tutorials 18 - The Case Against Binary Trees.pdf</link>
         <description>Are B-tree more efficient than hashtables and Red-Black trees?</description>
         <thumbnail>/public/thumb/badrbtree.webp</thumbnail>
-        <tag>cpu</tag>
-        <tag>d</tag>
-        <tag>dplug</tag>
-    </article>
-
-    <article>
-        <title>4 Audio DSP Optimization Idioms</title>
-        <link>/public/tutorials/Dplug Tutorials 19 - 4 Audio DSP Optimization Idioms.pdf</link>
-        <description>How could I speed up audio processing?</description>
-        <thumbnail>/public/thumb/speed.webp</thumbnail>
+        <elevator-pitch>Discover one an inconsequential performance improvement with trees that have more things per cell. Because cache. We live in exciting times, and this is an exciting PDF.</elevator-pitch>
         <tag>cpu</tag>
         <tag>d</tag>
         <tag>dplug</tag>
@@ -189,22 +237,16 @@
         <link>/public/tutorials/Dplug Tutorials 20 - Moog Ladder Filter Explained.pdf</link>
         <description>How can I model fast feedback loops in circuit models?</description>
         <thumbnail>/public/thumb/knob.webp</thumbnail>
+        <elevator-pitch>Ancient historians repeatedly refer to a method of using iterations to simulate a fast circuit in digital. Here the Moog ladder filter is emulated and integration is performed. How?</elevator-pitch>
         <tag>dsp</tag>
     </article>
 
-    <article>
-        <title>CLAP Support in Dplug</title>
-        <link>/public/tutorials/Dplug Tutorials 21 - CLAP Support in Dplug and 3 other goodies.pdf</link>
-        <description>How can I add a plugin format to my plugin?</description>
-        <thumbnail>/public/thumb/clap.webp</thumbnail>
-        <tag>dplug</tag>
-    </article>
-
-       <article>
+   <article>
         <title>FLOSS, Community, Business models</title>
         <link>/public/tutorials/Dplug Tutorials 22 - FLOSS, Community, Business models, a Basic Introduction.pdf</link>
         <description>What are the different business models of Open-source software?</description>
         <thumbnail>/public/thumb/oss.webp</thumbnail>
+        <elevator-pitch>All of the Open Source business models! What are they and what do they need? How to build a community? It will be useful to anyone accidentally building a plug-in framework.</elevator-pitch>
         <tag>other</tag>
         <tag>dplug</tag>
     </article>

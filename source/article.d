@@ -9,6 +9,7 @@ class Article
    string link;
    string description;
    string thumbnail;
+   string elevatorPitch;
    string[] tags;
 
    bool hasTag(const(char)[] t)
@@ -37,7 +38,7 @@ string convertTagToCategory(string tag)
         case "d":     return "is-hoverable is-danger is-light";
         case "cpu":   return "is-hoverable is-info is-light";
         case "other": return "is-hoverable is-light";
-    default: 
+        default: 
             writefln("Unknonw tag %s", tag);
             assert(false);
     }
@@ -63,6 +64,7 @@ Article[] parseArticles()
             a.link = nodePlugin.getUniqueTagString("link");
             a.description = nodePlugin.getUniqueTagString("description");
             a.thumbnail = nodePlugin.getUniqueTagString("thumbnail");
+            a.elevatorPitch = nodePlugin.getUniqueTagString("elevator-pitch");
 
             foreach(nodeTag; nodePlugin.getChildrenByTagName("tag"))
             {
