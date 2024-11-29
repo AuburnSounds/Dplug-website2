@@ -91,7 +91,62 @@ void showHome(ref Output output)
 {
     Page page;
     makeSitepageEnter(page, PAGE_FEATURES, THEME_DARK);
-    page.insertMarkdown("markdown/content.md");
+ //   page.insertMarkdown("markdown/content.md");
+    with(page)
+    {
+        div(`class="container my-6"`);
+            div(`class="columns is-family-monospace"`);
+                div(`class="column m-4"`);
+                    div(`class="title is-1"`);
+                        write(`<span class="main-title">DPLUG<br></span>`);
+                        write("Opensource lightweight audio framework");                    
+                    end;
+                end;
+
+                div(`class="column m-4"`);
+                    p(`class="title is-2"`);
+                        begin("figure", `class="image"`);
+                            img("/public/dplug-logo.png", "Dplug logo");
+                        end;
+                    end;
+                end;
+            end;
+
+            div(`class="columns is-family-monospace"`);
+                div(`class="column m-4"`);
+                    p(`class="title is-2"`);
+                        write(`<span class="main-title">KEY BENEFITS<br></span>`);
+                        write(`<span class"geek">SUPER EASY TO SETUP<br>`);
+                        write("FAST TO USE<br>");
+                        write("NICE EXAMPLES TO START WITH<br>");
+                        write("EASY TO MAKE AN INSTALLER<br>");
+                        write("SUPPORTIVE COMMUNITY<br><br>");
+                        write("YOU CAN MAKE OSS OR PAID PLUG-IN<br>");
+                        write("- VST / AU / AAX / CLAP / FLP / LV2<br>");
+                        write("- WINDOWS / MACOS / LINUX");
+                        write(`</span>`);
+                    end;
+                end;
+
+                div(`class="column m-4"`);
+                    p(`class="buttons"`);
+                        begin("button", `class="button is-large is-fullwidth"`);
+                            write("HOW TO INSTALL AND START");                    
+                        end;
+                        begin("button", `class="button is-large is-fullwidth"`);
+                            write("COMMUNITY FORUM");                    
+                        end;
+                        begin("button", `class="button is-large is-fullwidth"`);
+                            write("DOCUMENTATION & SUPPORT");                    
+                        end;
+                        begin("button", `class="button is-large is-fullwidth"`);
+                            write("SOURCE CODE");                    
+                        end;
+                    end;
+                end;
+            end;
+        end;
+    }
     makeSitepageExit(page);
 
     output.setExpires(CACHE_MAXAGE);

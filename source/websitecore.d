@@ -13,7 +13,6 @@ enum
     PAGE_TUTORIALS
 }
 
-
 debug
     enum int CACHE_MAXAGE = 1;
 else
@@ -22,7 +21,15 @@ else
 void makeSitepageEnter(ref Page page, int selectedPage, bool darkTheme)
 {
     page.htmlHeader("dplug.org", "The Dplug Audio Plug-in Framework.", darkTheme);
-    page.begin("body");
+
+    if (darkTheme)
+    {
+        page.begin("body", `style="background-color: rgb(28,28,41)"`);
+    }
+    else
+    {
+        page.begin("body");
+    }
     makeSiteNavbar(page, selectedPage);
 }
 
