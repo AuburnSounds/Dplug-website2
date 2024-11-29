@@ -6,3 +6,20 @@
 .column {
     display: flex;
 }
+
+.main-title {
+    font-family: "Squada One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 6rem;
+    color: rgb(228,182,144);
+}
+
+.geek {
+    font-family: "Inconsolata", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    color: rgb(188, 194, 199);
+}
