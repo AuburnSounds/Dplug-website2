@@ -1,0 +1,18 @@
+[Unit]
+Description=Server for the dplug.org website
+
+[Install]
+WantedBy=multi-user.target
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ponce/dplug.org
+ExecStart=/home/ponce/dplug.org/dplug-website2
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=%n
+User=ponce
+Group=ponce
