@@ -13,6 +13,9 @@ enum
     PAGE_TUTORIALS
 }
 
+enum DISCORD_LINK = "https://discord.gg/7PdUvUbyJs";
+enum GITHUB_LINK = "https://github.com/AuburnSounds/Dplug";
+
 debug
     enum int CACHE_MAXAGE = 1;
 else
@@ -38,9 +41,9 @@ void makeSiteNavbar(ref Page page, int selectedPage)
     with(page)
     {
         begin("nav", `class="navbar theme-light" role="navigation" aria-label="main navigation"`);
-        div(`class="navbar-brand"`);
-        a("/", `class="navbar-item"`);
-        img("/public/dplug-logo.png", "Dplug Logo", `class="dplug-logo"`);
+            div(`class="navbar-brand"`);
+            a("/", `class="navbar-item"`);
+            img("/public/dplug-logo.png", "Dplug Logo", `class="dplug-logo"`);
         end;
 
         /*        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -54,17 +57,17 @@ void makeSiteNavbar(ref Page page, int selectedPage)
         div(`id="navbarBasicExample" class="navbar-menu"`);
         div(`class="navbar-start"`);
 
-        a("/", format(`class="navbar-item %s"`, selectedPage == PAGE_FEATURES ? " is-selected":""));
+        a("/", format(`class="navbar-item is-light%s"`, selectedPage == PAGE_FEATURES ? " is-selected nav-selected":""));
         //icon("lni-home-2");
         spanText("FEATURES");
         end;
 
-        a("/made-with-dplug", format(`class="navbar-item %s"`, selectedPage == PAGE_MADEWITH ? " is-selected":""));
+        a("/made-with-dplug", format(`class="navbar-item is-light%s"`, selectedPage == PAGE_MADEWITH ? " is-selected nav-selected":""));
         //icon("lni-heart");
         spanText("MADE WITH DPLUG");
         end;
 
-        a("/tutorials", format(`class="navbar-item button %s"`, selectedPage == PAGE_TUTORIALS ? " is-selected":""));
+        a("/tutorials", format(`class="navbar-item button is-light%s"`, selectedPage == PAGE_TUTORIALS ? " is-selected nav-selected":""));
         //icon("lni-book-open");
         spanText("TUTORIALS");
         end;
@@ -73,12 +76,12 @@ void makeSiteNavbar(ref Page page, int selectedPage)
         div(`class="navbar-end"`);
         div(`class="navbar-item"`);
         div(`class="buttons"`);
-        a("https://github.com/AuburnSounds/Dplug", `class="button is-light"`);
+        a(GITHUB_LINK, `class="button is-light"`);
         icon("lni-github");
         spanText("OPEN SOURCE");
         end;
 
-        a("https://discord.gg/7PdUvUbyJs", `class="button is-primary"`);
+        a(DISCORD_LINK, `class="button is-primary"`);
         icon("lni-discord");
         spanText("DISCORD");
         end;

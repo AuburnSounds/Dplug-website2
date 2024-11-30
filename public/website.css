@@ -23,3 +23,25 @@
     font-variation-settings: "wdth" 100;
     color: rgb(188, 194, 199);
 }
+
+.main-button {
+    border-bottom-width: 0.5rem;
+    border-bottom-color: rgb(156 122 93);
+    border-top-color: rgb(228 182 144);
+    border-top-width: 0.5rem;
+    border-radius: 0;
+    margin: 0.5em;
+    background-color: rgb(228, 182, 144);
+    color: #1c1c29;
+}
+
+.main-button:hover {
+    border-top-color: #8a2e26;
+    background-color: #d5463a;
+    border-bottom-color: #d5463a;
+    color: #ebecf0;
+}
+
+.nav-selected {
+    background-color: rgb(228, 182, 144);
+}
