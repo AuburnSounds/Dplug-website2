@@ -35,6 +35,11 @@
     color: #1c1c29;
 }
 
+.alt-button {
+    background-color: #d5463a;
+}
+
+
 .main-button:hover {
     border-top-color: #8a2e26;
     background-color: #d5463a;
@@ -42,6 +47,20 @@
     color: #ebecf0;
 }
 
+.main-button:hover:before {
+    content: "<\00a0"
+}
+
+.main-button:hover:after {
+    content: "\00a0>"
+}
+
 .nav-selected {
     background-color: rgb(228, 182, 144);
 }
+
+.hide
+{
+    display: none;
+}
+

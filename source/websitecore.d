@@ -95,6 +95,18 @@ void makeSiteNavbar(ref Page page, int selectedPage)
 
 void makeSitepageExit(ref Page page)
 {
+    page.begin("footer", `class="footer mt-6"`);
+    
+    page.write(`
+        <div class="content has-text-centered">
+            <p>
+            Dplug framework by the Dplug contributors. Website content is licensed
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0//"
+                    >CC BY NC SA 4.0</a
+                    >.
+            </p>
+        </div>`);
+    page.end("footer");
     page.end("body");
     page.write("</html>");
 }

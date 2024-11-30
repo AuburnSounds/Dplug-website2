@@ -99,14 +99,24 @@ void showHome(ref Output output)
                 div(`class="column m-4"`);
                     div(`class="title is-1"`);
                         write(`<span class="main-title">DPLUG<br></span>`);
-                        write("Opensource lightweight audio framework");                    
+                        write("Opensource lightweight audio framework");   
+
+                        div(`class="box mt-6"`);
+                            begin("figure", `class="image"`);
+                                img("/public/examples.webp", "Dplug examples");
+                            end;
+                            a("/made-with-dplug");
+                                write(`<button class="button is-danger is-large alt-button">See plug-ins made with Dplug…</button>`);
+                            end;
+                        end;
                     end;
+
                 end;
 
                 div(`class="column m-4"`);
                     p(`class="title is-2"`);
-                        begin("figure", `class="image"`);
-                            img("/public/dplug-logo.png", "Dplug logo");
+                        begin("figure", `class="image mt-6"`);
+                            img("/public/dplug-logo.png", "Dplug logo", `class="main-logo"`);
                         end;
                     end;
                 end;
@@ -117,14 +127,16 @@ void showHome(ref Output output)
                     p(`class="title is-2"`);
                         write(`<span class="main-title">KEY BENEFITS<br></span>`);
                         write(`<span style="font-size: 0.7em">`);
-                        write(`SUPER EASY TO SETUP,<br>`);
-                        write("FAST TO USE,<br>");
-                        write("NICE EXAMPLES TO START WITH,<br>");
-                        write("EASY TO MAKE AN INSTALLER,<br>");
-                        write("SUPPORTIVE COMMUNITY!<br><br>");
+                        write("♦ FAST TO USE<br>");
+                        write("♦ OPEN SOURCE<br>");
+                        write("♦ FREE OF CHARGE NO CAP<br>");
+                        write(`♦ EASY TO SETUP<br>`);                        
+                        write("♦ EXAMPLES TO START WITH<br>");
+                        write("♦ LOW MAINTENANCE<br>");
+                        write("♦ SUPPORTIVE COMMUNITY!<br><br>");
                         write("MAKE FLOSS OR PAID PLUG-IN:<br>");
-                        write("- VST3 / VST2 / AU / AAX / CLAP / FLP / LV2<br>");
-                        write("- WINDOWS / MACOS / LINUX");
+                        write("♦ VST3 / VST2 / AU / AAX / CLAP / FLP / LV2<br>");
+                        write("♦ WINDOWS / MACOS / LINUX");
                         write(`</span>`);
                     end;
                 end;
@@ -133,13 +145,15 @@ void showHome(ref Output output)
                     p(`class="container my-4 theme-light"`);
                         a("https://github.com/AuburnSounds/Dplug/wiki/Getting-Started");
                             begin("button", `class="button is-large is-fullwidth p-5 title is-family-monospace main-button"`);
-                                write("HOW TO INSTALL AND START");                    
+                                write("HOW TO INSTALL AND START");
+                                write(`<span class="hide">&lt;</span>`);
                             end;
                         end;
 
                         a(DISCORD_LINK);
                             begin("button", `class="button is-large is-fullwidth p-5 title is-family-monospace main-button"`);
-                                write("COMMUNITY FORUM");                    
+                                write("COMMUNITY FORUM"); 
+                                write(`<span class="hide">&lt;</span>`);
                             end;
                         end;
 
@@ -151,7 +165,7 @@ void showHome(ref Output output)
 
                         a(GITHUB_LINK);
                             begin("button", `class="button is-large is-fullwidth p-5 title is-family-monospace main-button"`);
-                                write("SOURCE CODE");                    
+                                write("SOURCE CODE & DETAILS");                    
                             end;
                         end;
                     end;
