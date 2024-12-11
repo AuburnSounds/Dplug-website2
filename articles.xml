@@ -226,7 +226,7 @@
         <link>/public/tutorials/Dplug Tutorials 18 - The Case Against Binary Trees.pdf</link>
         <description>Are B-tree more efficient than hashtables and Red-Black trees?</description>
         <thumbnail>/public/thumb/badrbtree.webp</thumbnail>
-        <elevator-pitch>Discover one an inconsequential performance improvement with trees that have more things per cell. Because cache. We live in exciting times, and this is an exciting PDF.</elevator-pitch>
+        <elevator-pitch>Discover one inconsequential performance improvement with trees that have more things per cell. Because cache. We live in exciting times, and this is an exciting PDF.</elevator-pitch>
         <tag>cpu</tag>
         <tag>d</tag>
         <tag>dplug</tag>

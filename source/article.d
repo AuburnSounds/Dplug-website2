@@ -19,6 +19,9 @@ class Article
                return true;
        return false;
    }
+
+   bool isPDF;
+   ulong bytes; // size of file, if hosted
 }
 
 string[] KNOWN_TAGS =
@@ -65,6 +68,12 @@ Article[] parseArticles()
             a.description = nodePlugin.getUniqueTagString("description");
             a.thumbnail = nodePlugin.getUniqueTagString("thumbnail");
             a.elevatorPitch = nodePlugin.getUniqueTagString("elevator-pitch");
+
+            a.isPDF = (a.link.length >= 4) && (a.link[$-4..$] == ".pdf");
+            {
+                File file_handle = File(deleteme, "r");
+                a.bytes = file_handle.size();
+            }
 
             foreach(nodeTag; nodePlugin.getChildrenByTagName("tag"))
             {
