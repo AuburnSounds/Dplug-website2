@@ -1,0 +1,8 @@
+Dplug meeting un jour:
+   parler de small tricks: DC initialization
+                           map parameters to different range for display
+                           discrete knobs
+                           subsampling without boundary conditions
+                           chainer les biquad pour faire un butterworth
+                           crest and reverse crest
+
