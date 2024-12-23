@@ -42,4 +42,11 @@
         <screenshot>/public/showcase/taralead.webp</screenshot>
         <description>HARD distortion, perfect for guitars &amp; bass !</description>
     </plugin>
+    <plugin>
+        <name>kdr-envtool</name>
+        <vendor>kdr</vendor>
+        <link>https://github.com/klknn/kdr/releases</link>
+        <screenshot>/public/showcase/kdr-envtool.webp</screenshot>
+        <description>Arbitrary envelope-shaping effect.</description>
+    </plugin>
 </showcase>

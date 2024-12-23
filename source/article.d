@@ -70,10 +70,10 @@ Article[] parseArticles()
             a.elevatorPitch = nodePlugin.getUniqueTagString("elevator-pitch");
 
             a.isPDF = (a.link.length >= 4) && (a.link[$-4..$] == ".pdf");
-            {
+            /*{
                 File file_handle = File(deleteme, "r");
                 a.bytes = file_handle.size();
-            }
+            }*/
 
             foreach(nodeTag; nodePlugin.getChildrenByTagName("tag"))
             {

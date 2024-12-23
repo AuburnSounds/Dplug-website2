@@ -22,7 +22,6 @@ struct Page
         s ~= `<link rel="stylesheet" href="/public/bulma.min.css">`;
         s ~= `<link rel="stylesheet" href="https://cdn.lineicons.com/5.0/lineicons.css">`;
         s ~= `<link rel="stylesheet" href="/public/website.css">`;
-
         s ~= `<link rel="preconnect" href="https://fonts.googleapis.com">`;
         s ~= `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`;
         s ~= `<link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Squada+One&display=swap" rel="stylesheet">`;

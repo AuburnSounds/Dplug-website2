@@ -313,7 +313,9 @@ void showTutorials(ref Output output, string seltag)
                     div(`class="button link"`);
                         write("See:&nbsp;");
                         a(article.link);
-                            write(article.title);
+                            string title = article.title;
+                            if (article.isPDF) title ~= "&nbsp;(PDF)";
+                            write(title);
                         end;
                     end;
                                        
