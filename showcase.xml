@@ -16,7 +16,7 @@
     </plugin>
     <plugin>
         <name>Nu:Cat</name>
-        <vendor>Kitsenubi Games</vendor>
+        <vendor>Kitsunebi Games</vendor>
         <link>https://kitsunebi-games.itch.io/nucat</link>
         <screenshot>/public/showcase/nucat.webp</screenshot>
         <description>Synthesize cat sounds with Nu:Cat! Introducing unique meowdulations. Making a synth is at your clawtips.</description>
