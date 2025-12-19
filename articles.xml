@@ -252,11 +252,11 @@
     </article>
 
     <article>
-        <title>Why is Dplug moving to numem/nulib?</title>
+        <title>Moving to numem</title>
         <link>/public/tutorials/Dplug Tutorials 22 - Moving to numem.pdf</link>
-        <description>What does it mean for portability?</description>
+        <description>Why is Dplug moving to numem/nulib?</description>
         <thumbnail>/public/thumb/numem.webp</thumbnail>
-        <elevator-pitch>Where the hero discovers a D runtime without GC has existed for a while, and now wen can envision a future without Phobos.</elevator-pitch>
+        <elevator-pitch>Where the hero discovers a D runtime without GC has existed for a while, and now a future without Phobos is a possibility.</elevator-pitch>
         <tag>d</tag>
         <tag>dplug</tag>
     </article>
