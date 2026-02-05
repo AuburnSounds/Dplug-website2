@@ -106,7 +106,7 @@ void showHome(ref Output output)
                                 img("/public/examples.webp", "Dplug examples");
                             end;
                             a("/made-with-dplug");
-                                write(`<button class="button is-danger is-large alt-button">See plug-ins made with Dplug…</button>`);
+                                write(`<button class="button is-danger is-large alt-button">MADE WITH DPLUG</button>`);
                             end;
                         end;
                     end;

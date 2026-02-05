@@ -27,7 +27,7 @@ void makeSitepageEnter(ref Page page, int selectedPage, bool darkTheme)
 
     if (darkTheme)
     {
-        page.begin("body", `style="background-color: rgb(28,28,41)"`);
+        page.begin("body", `style="background-color: rgb(32,34,47)"`);
     }
     else
     {
