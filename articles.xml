@@ -261,4 +261,17 @@
         <tag>dplug</tag>
     </article>
 
+    <article>
+        <title>Ivantsov filters and you</title>
+        <link>/public/tutorials/Dplug Tutorials 24 - Ivantsov filters and you.pdf</link>
+        <description>Why use Ivantsov filters?</description>
+        <thumbnail>/public/thumb/ivantsov.webp</thumbnail>
+        <elevator-pitch>For decades you've been happily using biquads and 
+    Robert Bristow-Johnson derivations. Life was great! But there is a trouble in the Force. You can feel that something is off, although you cannot point a finger on it. Customers hint at weird digital harshness in high-shelves, and people are afraid to play music in the street at night. What if there was a better way?</elevator-pitch>
+        <tag>dsp</tag>
+        <tag>dplug</tag>
+    </article>
+
+    
+
 </articles>
