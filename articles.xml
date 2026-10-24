@@ -10,6 +10,16 @@
     -->
 
     <article>
+        <title>Future plans for Dplug in the age of AI</title>
+        <link>/public/tutorials/Dplug Tutorials 25 - Future plans for Dplug in the age of AI.pdf</link>
+        <description></description>
+        <thumbnail>/public/thumb/dplug.webp</thumbnail>
+        <elevator-pitch>What does Dplug become in the exciting AI age.</elevator-pitch>
+        <tag>d</tag>
+        <tag>dplug</tag>
+    </article>
+
+    <article>
         <title>Get Started with your first Dplug plug-in</title>
         <link>https://github.com/AuburnSounds/Dplug/wiki/Getting-Started</link>
         <description>How can I make my first Dplug plug-in?</description>
